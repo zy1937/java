@@ -1,0 +1,13 @@
+Servlet 总结
+JAVA WEB中，Servlet主要用于负责接收用户请求HttpServletRequest,在doGet(),doPost()中做相应的处理，并将回应HttpServletReponse反馈给用户。
+Servlet程序是由WEB服务器调用，WEB服务器收到客户端的Servlet访问请求之后，
+1、WEB服务器首先检查是否已经装载并创建了该Servlet对象的实例，如果是，直接执行第四步，否则执行第二步；
+2、装载并创建该Servlet的实例对象；
+3、调用Servlet实例对象的init()方法；
+4、创建一个用于封装HTTP请求消息的HttpServletRequest对象和一个代表HTTP相应消息的HttpServletResponsed对象，然后调用Servlet的Service()方法并将请求和响应对象作为参数传递进去。
+5、WEB应用程序被停止或重新启动之前，Servlet引擎将卸载Servlet,并在卸载之前调用Servlet的destroy()方法。
+针对客户端的多次Servlet请求，通常情况下，服务器只会创建一个Servlet实例对象，也就是说Servlet实例对象一旦创建，它就会驻留在内存中，为后续的其它请求服务，直至web容器退出，servlet实例对象才会销毁
+Servlet接口实现类：
+Servlet接口SUN公司定义了两个默认实现类，分别为：GenericServlet、HttpServlet。
+HttpServlet指能够处理HTTP请求的servlet，它在原有Servlet接口上添加了一些与HTTP协议处理方法，它比Servlet接口的功能更为强大。因此开发人员在编写Servlet时，通常应继承这个类，而避免直接去实现Servlet接口。
+HttpServlet在实现Servlet接口时，覆写了service方法，该方法体内的代码会自动判断用户的请求方式，如为GET请求，则调用HttpServlet的doGet方法，如为Post请求，则调用doPost方法。因此，开发人员在编写Servlet时，通常只需要覆写doGet或doPost方法，而不要去覆写service方法。
