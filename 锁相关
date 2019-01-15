@@ -3,3 +3,21 @@
 2、修饰静态方法，作用于当前类对象加锁，进入同步代码前要获得当前类对象的锁，即给当前类对象加锁会作用于类所有的对象实例，类锁和对象锁是不同的；
 3、修饰代码块，指定加锁对象，对给定对象加锁，进入同步代码库前要获得给定对象的锁。synchronized(this)是锁定当前对象，synchronized关键字加到static
 静态方法和synchronized(class)代码块上都是给Class类上锁。
+
+二、双重校验锁实现对象单例（线程安全）
+public class Singleton{
+   private volatile static Singleton uniqueInstance; //此处的理解是，静态对象在类中只会有一个，如果实例化过，便肯定有uniqueInstance
+   private Singleton(){} //构造方法？
+   public static Singleton getUniqueInstance(){
+       //先判断对象是否已经实例，没有实例话过才进入加锁代码
+       if (uniqueInstance ==null){
+           //类锁对象
+           synchronized (Singleton.class) {
+               if (uniqueInstance == null){
+                   uniqueInstance = new Singleton();
+               }
+           }
+       }
+       return uniqueInstance;
+   }
+}
