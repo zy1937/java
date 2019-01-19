@@ -4,3 +4,16 @@ https://blog.csdn.net/yongqi_wang/article/details/80469869
 参考：https://blog.csdn.net/zhshulin/article/details/23912615
 2、Spring boot:
 https://www.cnblogs.com/ityouknow/p/5662753.html
+知识点：
+一、MyBatis:
+1、MyBatis是一个持久层框架，完成的是对数据库的访问和操作（CRUD）
+2、它解决JDBC对数据库的操作和访问过程中存在的问题，是对原有JDBC技术的封装
+   1、虽然JDBC操作数据库的方式很直观，但它的核心是对数据库的操作，多个方法间存在大量的冗余；
+   2、基于Java中面向对象的基本思想，所以我们会将查询出来的结果封装成一个对象，这一系列操作都需要手动完成，将对象和表单做一个映射关系，
+   将一个个属性取出来并赋值给对象，手动ORM映射
+   3、对于多个用户的相同查询操作，没有进行优化，会造成运行效率偏低（主要指缓存层Cache）
+3、以.xml配置文件的方式实现DAO接口去除冗余代码
+运行原理：
+MyBatis应用程序根据XML配置文件创建SqlSessionFactory，SqlSessionFactry再根据配置，获取一个SqlSession，配置来源于两个地方，一个是
+配置文件，一个是源于Java代码的注解。SqlSession包含了执行sql所需要的所有方法，可以通过SqlSession实例直接运行映射的sql语句，完成对数据的
+CRUD操作和事物提交，完成后关闭。
