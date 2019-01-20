@@ -1,0 +1,35 @@
+java jar包下载网址：https://mvnrepository.com/
+https://blog.csdn.net/yongqi_wang/article/details/80469869
+1、SSM,使用MyBatis Generator自动创建代码
+参考：https://blog.csdn.net/zhshulin/article/details/23912615
+2、Spring boot:
+https://www.cnblogs.com/ityouknow/p/5662753.html
+--------------------------------------学习框架，重点是要理解项目的思想--------------------------------------------------------
+知识点：
+一、MyBatis:
+1、MyBatis是一个持久层框架，完成的是对数据库的访问和操作（CRUD）
+2、它解决JDBC对数据库的操作和访问过程中存在的问题，是对原有JDBC技术的封装
+   1、虽然JDBC操作数据库的方式很直观，但它的核心是对数据库的操作，多个方法间存在大量的冗余；
+   2、基于Java中面向对象的基本思想，所以我们会将查询出来的结果封装成一个对象，这一系列操作都需要手动完成，将对象和表单做一个映射关系，
+   将一个个属性取出来并赋值给对象，手动ORM映射
+   3、对于多个用户的相同查询操作，没有进行优化，会造成运行效率偏低（主要指缓存层Cache）
+3、以.xml配置文件的方式实现DAO接口去除冗余代码
+运行原理：
+MyBatis应用程序根据XML配置文件创建SqlSessionFactory，SqlSessionFactry再根据配置，获取一个SqlSession，配置来源于两个地方，一个是
+配置文件，一个是源于Java代码的注解。SqlSession包含了执行sql所需要的所有方法，可以通过SqlSession实例直接运行映射的sql语句，完成对数据的
+CRUD操作和事物提交，完成后关闭。
+二、Spring:
+一个2003年兴起的轻量级开源框架，是一个轻量级的控制反转（IoC）和面向切面（AOP）的容器框架；
+三、SpringMVC
+其属于SpringFrameWork的后续产品，已经融合在Spring Web Flow里面，其分离了控制器、模型对象、分派器以及处理程序对象的角色，这种分离让他们更容易定制。
+
+四、Spring IOC(控制反转)的理解
+参考至：https://jinnianshilongnian.iteye.com/blog/1413846
+       https://www.cnblogs.com/xdp-gacl/p/4249939.html 
+    首先，IOC不是一种技术，而是一种思想，IOC意味着将你设计好的对象交给容器控制，而不是传统的在你的对象内部
+直接控制。
+    在传统的JAVA SE 程序设计中，我们直接在对象内部new进行对象创建，是程序主动去创建依赖对象，而IOC是有专门容器来控制对象的创建，即由IOC容器控制了对象，进行
+外部资源获取。
+Spring所倡导的开发方式就是如此，所有的类都会在spring容器中登记，告诉spring你是个什么东西，你需要什么东西，然后spring会在系统运行到适当的时候，
+把你要的东西主动给你，同时也把你交给其他需要你的东西。所有的类的创建、销毁都由 spring来控制，也就是说控制对象生存周期的不再是引用它的对象，
+而是spring。对于某个具体的对象而言，以前是它控制其他对象，现在是所有对象都被spring控制，所以这叫控制反转。
