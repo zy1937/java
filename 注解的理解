@@ -1,0 +1,7 @@
+参考：https://www.cnblogs.com/digdeep/p/4525567.html
+
+1、@Override
+2、@Aspect     org.aspectj.lang.annotation.Aspect
+3、@Component  org.springframework.stereotype.Component
+4、@Pointcut   org.aspectj.lang.annotation.Pointcut
+5、@Before     org.aspectj.lang.annotation.Before
