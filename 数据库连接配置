@@ -1,0 +1,10 @@
+在开发过程中，必然面临的一个问题是如何连接数据库，并且在多个数据源的情况如何便捷的进行数据源间的切换？
+一、Spring+batis
+1、配置多个datasource,多个sqlSessionFactory,多个transactionManager,以及关键的地方在于MapperScannerConfiger的配置，使用sqlSessionFactoryBeanName
+属性，这样的话，就为不同的数据库对应的mapper接口注入对应的sqlSessionFactory。
+但是，这种方式，不支持分布式事务，也就是说同一个事务中无法操作多个数据库，直观的感受是不灵活。
+2、基于AbstractRoutingDataSource和AOP的多数据源配置
+自定义一个DataSource类，ThreadLocalRountingDataSource，来继承AbstractRoutingDataSource，然后在配置文件中向ThreadLocalRountingDataSource注入 master
+和 slave 的数据源，然后通过 AOP 来灵活配置，在哪些地方选择  master 数据源，在哪些地方需要选择 slave数据源。
+
+可参考：https://www.cnblogs.com/digdeep/p/4512368.html
