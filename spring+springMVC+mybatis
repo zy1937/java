@@ -35,3 +35,5 @@ Spring所倡导的开发方式就是如此，所有的类都会在spring容器�
 而是spring。对于某个具体的对象而言，以前是它控制其他对象，现在是所有对象都被spring控制，所以这叫控制反转。
 五、SqlSession解读-核心
 参考：https://blog.csdn.net/doujinlong1/article/details/81155650
+六、Spring 框架的设计理念与设计模式分析
+参考：https://www.ibm.com/developerworks/cn/java/j-lo-spring-principle/
