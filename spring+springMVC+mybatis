@@ -58,6 +58,16 @@ AOP，即面向切面编程，基于代理模式，但JDK的动态代理模式�
 4、切面（Aspect）,切面是切点和通知的集合，一般单独作为一个类，他们共同定义了在何时、何处完成功能。
 5、引入（Introduction），引用允许我们向现有的类添加新的方法和属性。
 6、织入（Weaving）
+AOP语法：
+可参考：https://www.cnblogs.com/zhangxufeng/p/9160869.html
+AOP原理：
+运行时织入，动态代理（基于接口代理实现--JDK代理和基于继承代理实现--Cglib代理）和静态代理模式。目标对象委托代理对象和caller端进行交互。caller端通过
+接口interface来引用目标对象，而代理对象和代理对象共同作为接口的实现类，但代理对象把真正的方法交个委托对象来执行，自己执行额外逻辑，
+也就是AOP要执行的逻辑。
+JDK代理：
+1、类：java.lang.reflect.Proxy
+2、接口:InvocationHandler
+3、只能基于接口进行动态代理；
 
 
 
