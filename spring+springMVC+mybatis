@@ -19,6 +19,7 @@ MyBatis应用程序根据XML配置文件创建SqlSessionFactory，SqlSessionFact
 配置文件，一个是源于Java代码的注解。SqlSession包含了执行sql所需要的所有方法，可以通过SqlSession实例直接运行映射的sql语句，完成对数据的
 CRUD操作和事物提交，完成后关闭。
 ---------------------------------------------------------------------------------------------------------------------------
+参考：https://javadoop.com/post/spring-ioc
 二、Spring:
 一个2003年兴起的轻量级开源框架，是一个轻量级的控制反转（IoC）和面向切面（AOP）的容器框架；
 三、SpringMVC
