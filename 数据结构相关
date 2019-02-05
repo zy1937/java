@@ -2,9 +2,10 @@
 1、Arraylist 和 LinkedList 都是不同步的，不保证线程安全；
 2、Arraylist底层使用的是Object数组，LinkedList底层使用的是双向链表数据结构；
 3、Arraylist采用数组存储，所以插入和删除元素的时间复杂度受元素位置的影响；LinkedList采用链表存储，进行插入/删除操作时，不受元素位置的影响；
-4、
+紧记，Arraylist和LinkedList的底层的不同，前者是数组，后者是链表。
+4、vector 是线程安全的
 
 二、HashMap 和 HashTable 、HashSet
 1、HashMap 的底层是数组和链表，HashMap 通过Key的hashCode 经过扰动函数处理后得到hash值，然后通过(n-1)&hash判断当前元素存放额位置，如果当前位置
 存在元素的话，就判断该元素和要存入的元素的hash值及key是否相同，如果相同，直接覆盖，不同则通过拉链法解决冲突；
-HashTable 是线程安全的，其方法全部经过synchronized修饰；
+HashTable 是线程安全的，其方法全部经过synchronized修饰；HashMap 是线程不安全的
