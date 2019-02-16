@@ -8,4 +8,21 @@
 二、HashMap 和 HashTable 、HashSet
 1、HashMap 的底层是数组和链表，HashMap 通过Key的hashCode 经过扰动函数处理后得到hash值，然后通过(n-1)&hash判断当前元素存放额位置，如果当前位置
 存在元素的话，就判断该元素和要存入的元素的hash值及key是否相同，如果相同，直接覆盖，不同则通过拉链法解决冲突；
-HashTable 是线程安全的，其方法全部经过synchronized修饰；HashMap 是线程不安全的
+key.hasCode() --> hash值 --> (n-1)&hash --> 当前元素的存放位置 --> 
+            扰动函数
+   Notes:
+   1、所谓扰动函数，指的就是>>>，无符号位移         
+HashTable 是线程安全的，其方法全部经过synchronized修饰；（基本被淘汰）
+HashMap 是线程不安全的
+Q1：HashMap的长度为什么总是2的幂次方？
+为了让HashMap存取高效，尽量减少碰撞，也就是尽量把数据分配均匀（Hash 值的范围值-2147483648到2147483647，
+前后加起来大概40亿的映射空间，只要哈希函数映射得比较均匀松散，一般应用是很难出现碰撞的），但问题是40亿长度的数组，内存放不下。
+所以这个散列不能直接拿来用，需要对数组的长度进行取模运算，得到的余数用来要存放位置的对应数组下标，
+数组下标的计算方法：(n - 1) & hash
+-------------------------------并发容器-------------------------------------------
+大部分存在于java,util.concurrent包中
+1、ConcurrentHashMap: 线程安全的HashMap；
+2、CopyOnWriteArrayList: 线程安全的List，在读多写少的场合性能非常好，远远好于Vector；
+3、BlockingQueue: JDK内部通过链表、数组方式实现这个接口，表示阻塞队列，非常适用于作为数组共享通道；
+4、ConcurrentSkipListMap: Map实现，使用跳表的数据结构实现快速查找；
+5、ConcurrentLinkedQueue: 高效的并发队列，实现链表实现，可以看作线程安全的LinkedLink，一个非阻塞队列；
