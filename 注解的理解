@@ -16,4 +16,14 @@
 12、@Qualifier
 13、@RequestMapping
 14、@RequestBody
-
+用法如：
+@RequestMapping(value = "/fundFeedback", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
+	public String fundFeedback(@RequestBody(required = true) String json) {
+		String result = null;
+		logger.info("mainService fundFeedback start!");
+		logger.info("param:" + json);
+		result = fundFluctuationService.fundFeedback(json);
+		// mainService.RecordQuery(json, result);
+		logger.info("mainService fundFeedback sucess!");
+		return result;
+	}
