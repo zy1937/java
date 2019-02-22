@@ -5,3 +5,12 @@
 3、@Component  org.springframework.stereotype.Component
 4、@Pointcut   org.aspectj.lang.annotation.Pointcut
 5、@Before     org.aspectj.lang.annotation.Before
+
+---------------------------20190222 新增---------------------------------
+6、@ComponentScan
+7、@Configuration
+8、@Resource
+9、@Service
+10、@Bean
+11、@Primary
+12、@Qualifier
