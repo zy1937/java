@@ -25,3 +25,5 @@ synchronized关键字可以将任何一个Object对象作为同步对象来看�
 由于消息的发送是在消息的接收之前，所以同步是隐式的。
 Java的并发采用共享内存模型，Java通信是隐式进行。
 --------------待阅读《JVM》后完成读后感---------------------
+
+并发：https://blog.csdn.net/javazejian/article/details/76167357#comments
